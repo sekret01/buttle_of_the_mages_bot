@@ -29,6 +29,19 @@ class Attack:
         return hit_resp.json()
 
 
+class EmptyAttack(Attack):
+    def __init__(self, session: requests.Session, guit: str, battle_type: str):
+        super().__init__(session, guit, battle_type)
+
+    def hit(self) -> dict:
+        """ ... """
+        request_data = {
+            "PlayerGuid": self.guit
+        }
+        hit_resp = self.session.post(url=self.url, data=request_data)
+        return hit_resp.json()
+
+
 class SpellAttack(Attack):
     """ ... """
     def __init__(self, session: requests.Session, guit: str, battle_type: str):
