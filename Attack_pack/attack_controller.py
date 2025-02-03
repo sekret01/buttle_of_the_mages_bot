@@ -1,5 +1,5 @@
-from attacks import Attack, SpellAttack
-
+from .attacks import Attack, SpellAttack
+import requests
 
 class AttackController:
     """ ... """

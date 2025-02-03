@@ -40,8 +40,8 @@ class SpellAttack(Attack):
         """ ... """
         request_data = {
             "BattleRequestType": self.hit_type,
-            "PlayerGuid": self.guit
-            ...
+            "PlayerGuid": self.guit,
+            # ...
         }
         hit_resp = self.session.post(url=self.url, data=request_data).json()
         return hit_resp.json()
