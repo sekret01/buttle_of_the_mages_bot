@@ -2,7 +2,7 @@ import requests
 import sys
 
 
-def _authorise(session):
+def _authorise(session) -> bool:
     """ ... """
     login = ...
     password = ...
@@ -24,7 +24,7 @@ def _authorise(session):
 
 def start_sessin() -> requests.Session:
     """ ... """
-
+    
     session = requests.Session()
     session.headers.update(
         {
