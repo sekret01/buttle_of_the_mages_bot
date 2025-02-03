@@ -1,11 +1,14 @@
+from configs import Authorise
 import requests
 import sys
 
 
 def _authorise(session) -> bool:
     """ ... """
-    login = ...
-    password = ...
+    auth_data = Authorise()
+    login = auth_data.login
+    password = auth_data.password
+
     link = f"https://magi.mobi/auth/credentials?Continue=/profile&UserName={login}&Password={password}"
     if session.post(link).status_code == 200:
         try:
@@ -22,7 +25,7 @@ def _authorise(session) -> bool:
     return False
 
 
-def start_sessin() -> requests.Session:
+def start_session() -> requests.Session:
     """ ... """
     
     session = requests.Session()
