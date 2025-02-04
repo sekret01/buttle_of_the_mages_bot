@@ -7,11 +7,11 @@ from bs4 import BeautifulSoup
 
 
 class TowersBattle:
-    """ ... """
-    def __init__(self, session):
+    """ A full cycle of battle <towers of magic> """
+    def __init__(self, session: requests.Session):
         self.session: requests.Session = session
         self.battle_type: str = "towers_of_the_mages"
-        self.guit: str = "a290b2e0-3021-4187-9ba9-c5d6294056b4"
+        self.guit: str = ""
 
     def play_tournament(self):
         """ ... """
