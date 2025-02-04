@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from Attack_pack import AttackController
 
 
+
 class ChaosArena:
     """ ... """
 
