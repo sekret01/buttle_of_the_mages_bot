@@ -1,9 +1,7 @@
-from Attack_pack import AttackController
-from configs import Authorise
 from session import start_session
-from Battles import ChaosArena
+from Battles import ChaosArena, TowersBattle
 
 session = start_session()
-ca = ChaosArena(session=session)
-ca.play_round()
+tb = TowersBattle(session=session)
+tb.play_tournament()
 

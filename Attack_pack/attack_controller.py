@@ -28,4 +28,7 @@ class AttackController:
     def pass_battle(self) -> dict:
         return self.empty_attacker.hit()
 
+    def go_to_tower(self) -> dict:
+        return self.attacker.go_to_tower()
+
 

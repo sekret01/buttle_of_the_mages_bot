@@ -10,7 +10,7 @@ class ChaosArena:
 
     def __init__(self, session):
         self.session: requests.Session = session
-        self.battle_type = "chaos_arena"
+        self.battle_type: str = "chaos_arena"
         self.wait_guit: str = ""
         self.battle_guit: str = ""
 

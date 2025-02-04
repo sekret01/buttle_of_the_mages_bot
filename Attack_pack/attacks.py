@@ -28,6 +28,15 @@ class Attack:
         hit_resp = self.session.post(url=self.url, data=request_data)
         return hit_resp.json()
 
+    def go_to_tower(self) -> dict:
+        """ .. """
+        request_data = {
+            "BattleRequestType": 4,
+            "PlayerGuid": self.guit
+        }
+        hit_resp = self.session.post(url=self.url, data=request_data)
+        return hit_resp.json()
+
 
 class EmptyAttack(Attack):
     def __init__(self, session: requests.Session, guit: str, battle_type: str):
