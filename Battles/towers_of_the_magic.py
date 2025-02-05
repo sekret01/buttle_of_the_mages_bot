@@ -73,7 +73,7 @@ class TowersBattle:
             resp = attacker.attack()
             left_time = resp['TimeLeft']
             print(f'\rДо конца: {left_time}', end='')
-            time.sleep(0.8)
+            time.sleep(1.5)
 
             if resp['BattleData']['ShowCommand']:
                 print("\nВыполнение команды")

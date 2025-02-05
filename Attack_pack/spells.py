@@ -38,6 +38,14 @@ struct = {
 }
 
 
+struct_to_process = {
+    "number": range(1, 24),
+    "type": "baff" | "damage",
+    "damage": int,
+    "attackers_count": 1 | 2 | 3
+}
+
+
 
 spells = [
     {

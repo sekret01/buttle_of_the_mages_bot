@@ -56,14 +56,13 @@ class SpellAttack(Attack):
     def __init__(self, session: requests.Session, guit: str, battle_type: str):
         super().__init__(session, guit, battle_type)
         self.hit_type: int = 2
-        self.spell_info: dict = {}
 
-    def hit(self) -> dict:
+    def hit(self, spell_number: int = 0) -> dict:
         """ ... """
         request_data = {
             "BattleRequestType": self.hit_type,
             "PlayerGuid": self.guit,
-            # ...
+            "SpellType": spell_number
         }
         hit_resp = self.session.post(url=self.url, data=request_data).json()
-        return hit_resp.json()
+        return hit_resp

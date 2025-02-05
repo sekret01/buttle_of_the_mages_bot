@@ -31,7 +31,7 @@ class ChaosArena:
     def _get_waiting_guit(self) -> str | None:
         """  ... """
 
-        time.sleep(3)
+        # time.sleep(3)
         resp = self.session.get("https://magi.mobi/arena_async")
         soup = BeautifulSoup(resp.text, 'html.parser')
         data = soup.find_all("timer-element")
@@ -52,7 +52,7 @@ class ChaosArena:
 
     def _wait_for_battle(self):
         i: int = 0
-        while i < 80:
+        while i < 30:
             time.sleep(1.5)
             battle_data = self.session.get(f"https://magi.mobi/json/arena_async/battle_status/{self.wait_guit}?format=json").json()
             if battle_data['PlayersCount'] == battle_data["PlayersMax"]:
