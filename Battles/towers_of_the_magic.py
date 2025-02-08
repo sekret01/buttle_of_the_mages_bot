@@ -11,7 +11,7 @@ class TowersBattle:
     def __init__(self, session: requests.Session):
         self.session: requests.Session = session
         self.battle_type: str = "towers_of_the_mages"
-        self.guit: str = "746e968d-9358-40c3-aadc-28aa6185f525"
+        self.guit: str = ""
 
     def play_tournament(self):
         """ ... """
