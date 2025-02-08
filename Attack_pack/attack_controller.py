@@ -30,14 +30,12 @@ class AttackController:
         if "ClanBookSpellInfo" in resp["PlayerInfo"].keys():
             spells.append(resp["PlayerInfo"]["ClanBookSpellInfo"])
 
-        spell_number: int = self.spell_chooser.choose(spells=spells)
-
-        self.spell_attacker.hit(spell_number=spell_number)
+        try:
+            spell_number: int = self.spell_chooser.choose(spells=spells)
+            self.spell_attacker.hit(spell_number=spell_number)
+        except Exception as ex:
+            print(ex)
         return resp
-
-    def spell_attack(self) -> dict:
-        # then remove (all the logic of strokes in the method <attack>)
-        return self.spell_attacker.hit()
 
     def pass_battle(self) -> dict:
         return self.empty_attacker.hit()

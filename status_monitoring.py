@@ -4,11 +4,11 @@ import requests
 class StatusMonitor:
     """ monitors the status of current events """
 
-    def __init__(self, session: requests.Session) -> dict[str: bool]:
+    def __init__(self, session: requests.Session):
         """ ... """
         self.session: requests.Session = session
 
-    def update_status(self):
+    def update_status(self) -> dict[str: bool]:
         """
         method to get the current status of events.
 

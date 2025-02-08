@@ -16,6 +16,7 @@ class TaskDistributor:
     def run(self):
         """ ... """
         while True:
+            print('\rожидание событий...', end='')
 
             status = self.monitor.update_status()
             if status["clan_tournament"]:
@@ -27,8 +28,9 @@ class TaskDistributor:
             if status["invasion"]:
                 pass
             if status["towers_battlse"]:
-                arena = ChaosArena(self.session)
-                arena.play_round()
+                print('\rсобытие: Башни магии')
+                towers_battle = TowersBattle(self.session)
+                towers_battle.play_tournament()
 
             if status["colosseum_of_the_Gods"]:
                 pass
