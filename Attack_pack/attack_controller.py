@@ -31,8 +31,9 @@ class AttackController:
             spells.append(resp["PlayerInfo"]["ClanBookSpellInfo"])
 
         try:
-            spell_number: int = self.spell_chooser.choose(spells=spells)
-            self.spell_attacker.hit(spell_number=spell_number)
+            if len(spells) > 0:
+                spell_number: int = self.spell_chooser.choose(spells=spells)
+                self.spell_attacker.hit(spell_number=spell_number)
         except Exception as ex:
             print(ex)
         return resp
