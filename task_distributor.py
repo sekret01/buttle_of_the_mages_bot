@@ -1,6 +1,6 @@
 from status_monitoring import StatusMonitor
 from game_status import StatusController
-from Battles import ChaosArena, TowersBattle
+from Battles import ChaosArena, TowersBattle, DailyAffairs
 import threading
 import time
 import datetime
@@ -19,7 +19,19 @@ class TaskDistributor:
         """ ... """
         while True:
 
-            self.status_controller.update_info()
+            is_new_day = self.status_controller.update_info()
+            
+            if is_new_day:
+                print(f"Обновление дня...")
+                daily_affairing = DailyAffairs(self.session)
+                daily_affairing.take_daily_prize()
+                daily_affairing.daily_mobs_battle()
+                daily_affairing.replenish_the_treasury()
+                daily_affairing.perform_tasks()
+
+                del daily_affairing
+                print("Ежеждневные задания выполнены\n")
+
 
             print('\rожидание событий...', end='')
 
