@@ -1,4 +1,5 @@
 from status_monitoring import StatusMonitor
+from game_status import StatusController
 from Battles import ChaosArena, TowersBattle
 import threading
 import time
@@ -12,10 +13,14 @@ class TaskDistributor:
     def __init__(self, session: requests.Session):
         self.session = session
         self.monitor = StatusMonitor(session=session)
+        self.status_controller = StatusController()
 
     def run(self):
         """ ... """
         while True:
+
+            self.status_controller.update_info()
+
             print('\rожидание событий...', end='')
 
             status = self.monitor.update_status()
