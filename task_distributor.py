@@ -1,6 +1,6 @@
 from status_monitoring import StatusMonitor
 from game_status import StatusController
-from Battles import ChaosArena, TowersBattle, DailyAffairs
+from Statuses import ChaosArena, DailyAffairs, StatusDistribution
 import threading
 import time
 import datetime
@@ -14,6 +14,7 @@ class TaskDistributor:
         self.session = session
         self.monitor = StatusMonitor(session=session)
         self.status_controller = StatusController()
+        self.status_distributor = StatusDistribution(session=session)
 
     def run(self):
         """ ... """
@@ -36,22 +37,5 @@ class TaskDistributor:
             print('\rожидание событий...', end='')
 
             status = self.monitor.update_status()
-            if status["clan_tournament"]:
-                pass
-            if status["tournament_1_of_5"]:
-                pass
-            if status["tournament_1_of_1"]:
-                pass
-            if status["invasion"]:
-                pass
-            if status["towers_battlse"]:
-                print('\rсобытие: Башни магии')
-                towers_battle = TowersBattle(self.session)
-                towers_battle.play_tournament()
-
-            if status["colosseum_of_the_Gods"]:
-                pass
-            if status["clan_tournament_1_of_5"]:
-                pass
-
-            time.sleep(60*5)
+            event = self.status_distributor.distributing(status=status)
+            event.run()

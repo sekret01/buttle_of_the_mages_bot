@@ -1,19 +1,19 @@
 import requests
 import time
-from requests import session
+from ._abstract_status_class import Status
 from Attack_pack import AttackController
 from bs4 import BeautifulSoup
 
 
 
-class TowersBattle:
+class TowersBattle(Status):
     """ A full cycle of battle <towers of magic> """
     def __init__(self, session: requests.Session):
         self.session: requests.Session = session
         self.battle_type: str = "towers_of_the_mages"
         self.guit: str = ""
 
-    def play_tournament(self):
+    def run(self):
         """ ... """
 
         self._join_tournament()

@@ -14,7 +14,7 @@ class ChaosArena:
         self.wait_guit: str = ""
         self.battle_guit: str = ""
 
-    def play_round(self, loose: bool = False):
+    def run(self, loose: bool = False):
         """ one round in the chaos arena (full cycle) """
 
         self.session.get("https://magi.mobi/arena_async/enter")
